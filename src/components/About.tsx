@@ -36,12 +36,12 @@ const About: React.FC<AboutProps> = ({ onSetPositions }) => {
             Why choose <span className="text-[#ee7834]">Us</span>
           </h2>
           <p className="text-xs lg:text-xl text-center max-w-[900px] mx-auto font-light leading-2 lg:leading-[25px]">
-            Whether you're celebrating a special occasion or simply indulging in
-            a sweet craving, our delectable baked goods are sure to satisfy. At
-            Debbie Chops, we believe in the power of good food to bring people
-            together, and we're excited to share our passion for baking with
-            you. Thank you for choosing Debbie Chops – where every bite is a
-            taste of happiness!
+            Whether you&apos;re celebrating a special occasion or simply
+            indulging in a sweet craving, our delectable baked goods are sure to
+            satisfy. At Debbie Chops, we believe in the power of good food to
+            bring people together, and we&apos;re excited to share our passion
+            for baking with you. Thank you for choosing Debbie Chops – where
+            every bite is a taste of happiness!
           </p>
           <div className="lg:flex lg:justify-end lg:items-end">
             <p

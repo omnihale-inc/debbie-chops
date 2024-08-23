@@ -16,7 +16,7 @@ const Menu: React.FC = () => {
       <h2>Menu</h2>
       <div>
         {menu.map((item, index) => (
-          <div></div>
+          <div key={index}></div>
         ))}
       </div>
     </section>
