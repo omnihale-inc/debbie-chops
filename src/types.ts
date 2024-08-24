@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 type Positions = {
   home: number;
   about: number;
@@ -13,7 +15,7 @@ interface NavigationProps {
 }
 
 interface Item {
-  image: string;
+  image: StaticImageData;
   title: string;
   description: string;
   amout: string;

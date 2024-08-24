@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.services-scroll::-webkit-scrollbar {
+.menu-small_screen::-webkit-scrollbar {
   display: none;
 }
