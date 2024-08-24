@@ -10,7 +10,7 @@ const About: React.FC<AboutProps> = ({ onSetPositions }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const aboutPosition = window.document.getElementById("about");
-    if (aboutPosition)
+    if (aboutPosition && onSetPositions)
       onSetPositions((prevState) => ({
         ...prevState,
         about: aboutPosition?.offsetTop,

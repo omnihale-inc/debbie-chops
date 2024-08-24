@@ -7,7 +7,7 @@ import { HomeProps } from "@/types";
 const Home: React.FC<HomeProps> = ({ onSetPositions }) => {
   useEffect(() => {
     const homePosition = window.document.getElementById("home");
-    if (homePosition)
+    if (homePosition && onSetPositions)
       onSetPositions((prevState) => ({
         ...prevState,
         home: homePosition?.offsetTop,
