@@ -94,8 +94,8 @@ const MenuSmallScreen = () => {
   return (
     <div className="flex overflow-x-scroll gap-8 menu-small_screen">
       {menu.map((menuItem, index) => (
-        <div className="shrink-0 basis-64">
-          <MenuItem menuItem={menuItem} index={index} />
+        <div className="shrink-0 basis-64" key={index}>
+          <MenuItem menuItem={menuItem} />
         </div>
       ))}
     </div>
@@ -119,7 +119,9 @@ const MenuLargeScreen: React.FC<MenuProps> = ({ menu }) => {
     <>
       <div className="grid grid-cols-3 gap-7">
         {renderedMenu.map((menuItem, index) => (
-          <MenuItem menuItem={menuItem} index={index} />
+          <React.Fragment key={index}>
+            <MenuItem menuItem={menuItem} />
+          </React.Fragment>
         ))}
       </div>
       {menuCursor < menu.length && (
@@ -142,15 +144,9 @@ const MenuLargeScreen: React.FC<MenuProps> = ({ menu }) => {
   );
 };
 
-function MenuItem({
-  index,
-  menuItem,
-}: {
-  menuItem: Item;
-  index: number;
-}): React.JSX.Element {
+function MenuItem({ menuItem }: { menuItem: Item }): React.JSX.Element {
   return (
-    <div key={index} className="mt-10">
+    <div className="mt-10">
       <div className="relative h-36 lg:h-40 w-full">
         <Image
           src={menuItem.image}
