@@ -106,9 +106,9 @@ function MenuItem({ menuItem }: { menuItem: Item }): React.JSX.Element {
         {menuItem.title}
       </h2>
       <p className="text-xs lg:text-sm">{menuItem.description}</p>
-      {menuItem.amout && (
+      {menuItem.amount && (
         <p className="mt-3 lg:mt-5 font-semibold text-sm lg:text-base">
-          {menuItem.amout}
+          {menuItem.amount}
         </p>
       )}
     </div>

@@ -1,6 +1,8 @@
 import homeImage from "@/assets/images/home.jpg";
 import itemImage from "@/assets/images/item.png";
 
+const CURRENCY = "\u20A6"; //Naira
+
 const restaurantData = {
   title: "Debbie's Delight",
   themeSecondaryColor: "#ee7834",

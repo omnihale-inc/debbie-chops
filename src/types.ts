@@ -18,7 +18,7 @@ interface Item {
   image: StaticImageData;
   title: string;
   description: string;
-  amout?: string;
+  amount?: string;
 }
 
 interface MenuProps extends OnSetPositions {
