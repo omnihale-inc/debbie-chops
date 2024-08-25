@@ -38,7 +38,7 @@ const Menu: React.FC<MenuProps> = ({ onSetPositions }) => {
 
 const MenuSmallScreen = () => {
   return (
-    <div className="flex overflow-x-scroll gap-4 menu-small_screen mx-4">
+    <div className="flex overflow-x-scroll gap-8 menu-small_screen">
       {MENU.map((menuItem, index) => (
         <div className="shrink-0 basis-64" key={index}>
           <MenuItem menuItem={menuItem} />
