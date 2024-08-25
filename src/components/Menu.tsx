@@ -2,60 +2,10 @@ import React, { useEffect, useState } from "react";
 import { MenuProps, Item } from "@/types";
 import { handbuck } from "@/utils/font";
 import Image from "next/image";
-import itemImage from "@/assets/images/item.png";
 import getElementPosition from "@/utils/getElementPosition";
+import restaurantData from "@/data";
 
-const menu = [
-  {
-    image: itemImage,
-    title: "Fried Rice",
-    description:
-      "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
-    amout: "200",
-  },
-  {
-    image: itemImage,
-    title: "Fried Rice",
-    description:
-      "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
-    amout: "200",
-  },
-  {
-    image: itemImage,
-    title: "Fried Rice",
-    description:
-      "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
-    amout: "200",
-  },
-  {
-    image: itemImage,
-    title: "Fried Mango",
-    description:
-      "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
-    amout: "200",
-  },
-  {
-    image: itemImage,
-    title: "Fried Onions",
-    description:
-      "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
-    amout: "200",
-  },
-  {
-    image: itemImage,
-    title: "Fried",
-    description:
-      "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
-    amout: "200",
-  },
-  {
-    image: itemImage,
-    title: "Fried Tomato",
-    description:
-      "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur.",
-    amout: "500",
-  },
-];
+const MENU = restaurantData.menu;
 
 const Menu: React.FC<MenuProps> = ({ onSetPositions }) => {
   const [pageSize, setPageSize] = useState(0);
@@ -79,7 +29,7 @@ const Menu: React.FC<MenuProps> = ({ onSetPositions }) => {
         {pageSize <= 800 ? (
           <MenuSmallScreen />
         ) : (
-          <MenuLargeScreen menu={menu} />
+          <MenuLargeScreen menu={MENU} />
         )}
       </div>
     </section>
@@ -89,7 +39,7 @@ const Menu: React.FC<MenuProps> = ({ onSetPositions }) => {
 const MenuSmallScreen = () => {
   return (
     <div className="flex overflow-x-scroll gap-4 menu-small_screen mx-4">
-      {menu.map((menuItem, index) => (
+      {MENU.map((menuItem, index) => (
         <div className="shrink-0 basis-64" key={index}>
           <MenuItem menuItem={menuItem} />
         </div>
@@ -156,9 +106,11 @@ function MenuItem({ menuItem }: { menuItem: Item }): React.JSX.Element {
         {menuItem.title}
       </h2>
       <p className="text-xs lg:text-sm">{menuItem.description}</p>
-      <p className="mt-3 lg:mt-5 font-semibold text-sm lg:text-base">
-        N{menuItem.amout}
-      </p>
+      {menuItem.amout && (
+        <p className="mt-3 lg:mt-5 font-semibold text-sm lg:text-base">
+          {menuItem.amout}
+        </p>
+      )}
     </div>
   );
 }

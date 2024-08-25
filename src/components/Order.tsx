@@ -4,6 +4,7 @@ import { handbuck } from "@/utils/font";
 import contactImage from "@/assets/images/contact.png";
 import { OrderProps } from "@/types";
 import getElementPosition from "@/utils/getElementPosition";
+import restaurantData from "@/data";
 
 const Order: React.FC<OrderProps> = ({ onSetPositions }) => {
   useEffect(() => {
@@ -21,7 +22,7 @@ const Order: React.FC<OrderProps> = ({ onSetPositions }) => {
         <a href="mailto:contact@omnihale.com">
           <p className="text-[9px] lg:text-base mt-3 lg:mt-0 font-light">
             <span className="font-bold">Email:</span>{" "}
-            order@debbiechops.omnihale.com
+            {restaurantData.orderEmail}
           </p>
         </a>
       </div>

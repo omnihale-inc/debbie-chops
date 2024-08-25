@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import restaurantData from "@/data";
 
 import { satoshi } from "@/utils/font";
 
 export const metadata: Metadata = {
-  title: "Debbie Chops",
+  title: restaurantData.title,
   description: "service brand website from omnihale",
   keywords: [
     "Business innovation",
