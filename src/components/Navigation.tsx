@@ -1,6 +1,7 @@
 import { handbuck, ollifiaPoettry } from "@/utils/font";
 import { useEffect, useState } from "react";
 import { NavigationProps, Positions } from "@/types";
+import restaurantData from "@/data";
 
 const NAVIGATION_LINKS = ["Home", "About", "Menu", "Order"];
 
@@ -21,7 +22,7 @@ const Navigation: React.FC<NavigationProps> = ({ positions }) => {
         <h2
           className={`${ollifiaPoettry.className} text-2xl lg:text-4xl text-center lg:text-left`}
         >
-          Debbie Chops
+          {restaurantData.title}
         </h2>
         <nav className="flex justify-between w-[203px] lg:w-[326px] mt-7 lg:mt-0">
           {NAVIGATION_LINKS.map((link, index) => (
