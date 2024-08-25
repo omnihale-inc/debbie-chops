@@ -3,15 +3,12 @@ import Image from "next/image";
 import homeImage from "@/assets/images/home.jpg";
 import { handbuck } from "@/utils/font";
 import { HomeProps } from "@/types";
+import restaurantData from "@/data";
+import getElementPosition from "@/utils/getElementPosition";
 
 const Home: React.FC<HomeProps> = ({ onSetPositions }) => {
   useEffect(() => {
-    const homePosition = window.document.getElementById("home");
-    if (homePosition && onSetPositions)
-      onSetPositions((prevState) => ({
-        ...prevState,
-        home: homePosition?.offsetTop,
-      }));
+    getElementPosition(onSetPositions, "home");
   }, []);
   return (
     <section className="mt-44 lg:mt-36 mx-auto max-w-6xl w-5/6" id="home">
@@ -19,7 +16,10 @@ const Home: React.FC<HomeProps> = ({ onSetPositions }) => {
         <h2
           className={`${handbuck.className} text-3xl text-center lg:text-7xl`}
         >
-          Welcome to <span className="text-[#ee7834]">Debbie Chops</span>
+          Welcome to{" "}
+          <span className={`text-[${restaurantData.themeSecondaryColor}]`}>
+            Debbie Chops
+          </span>
         </h2>
         <p className="text-xs text-center lg:text-base mt-3 lg:mt-0 font-light">
           Hello, and welcome to Debbie Chops, your go-to destination for

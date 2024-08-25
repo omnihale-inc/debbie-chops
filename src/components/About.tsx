@@ -3,29 +3,29 @@ import { useEffect, useRef, useState } from "react";
 import { AboutProps } from "@/types";
 import { handbuck } from "@/utils/font";
 import playImage from "@/assets/images/icons/play.png";
+import getElementPosition from "@/utils/getElementPosition";
 
 const About: React.FC<AboutProps> = ({ onSetPositions }) => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [cursor, setCursor] = useState("");
   const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
-    const aboutPosition = window.document.getElementById("about");
-    if (aboutPosition && onSetPositions)
-      onSetPositions((prevState) => ({
-        ...prevState,
-        about: aboutPosition?.offsetTop,
-      }));
+    getElementPosition(onSetPositions, "about");
   }, [onSetPositions]);
+
   const playVideoHandler = () => {
     videoRef.current?.play();
     setVideoPlaying(true);
     setCursor("cursor-pointer");
   };
+
   const stopVideoHandler = () => {
     videoRef.current?.pause();
     setVideoPlaying(false);
     setCursor("");
   };
+
   return (
     <section className="mt-5 lg:mt-10" id="about">
       <div className="flex flex-col justify-between items-center mx-auto max-w-6xl w-5/6 py-11 lg:py-16 h-fit">

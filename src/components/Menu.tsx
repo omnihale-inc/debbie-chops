@@ -3,6 +3,7 @@ import { MenuProps, Item } from "@/types";
 import { handbuck } from "@/utils/font";
 import Image from "next/image";
 import itemImage from "@/assets/images/item.png";
+import getElementPosition from "@/utils/getElementPosition";
 
 const menu = [
   {
@@ -65,12 +66,7 @@ const Menu: React.FC<MenuProps> = ({ onSetPositions }) => {
   }, []);
 
   useEffect(() => {
-    const menuPosition = window.document.getElementById("menu");
-    if (menuPosition && onSetPositions)
-      onSetPositions((prevState) => ({
-        ...prevState,
-        menu: menuPosition?.offsetTop,
-      }));
+    getElementPosition(onSetPositions, "menu");
   }, []);
   return (
     <section className="mx-auto max-w-6xl w-5/6 mb-2 lg:mb-8" id="menu">
@@ -92,7 +88,7 @@ const Menu: React.FC<MenuProps> = ({ onSetPositions }) => {
 
 const MenuSmallScreen = () => {
   return (
-    <div className="flex overflow-x-scroll gap-8 menu-small_screen">
+    <div className="flex overflow-x-scroll gap-4 menu-small_screen mx-4">
       {menu.map((menuItem, index) => (
         <div className="shrink-0 basis-64" key={index}>
           <MenuItem menuItem={menuItem} />
@@ -137,7 +133,7 @@ const MenuLargeScreen: React.FC<MenuProps> = ({ menu }) => {
             )
           }
         >
-          ReadMore
+          See More
         </button>
       )}
     </>

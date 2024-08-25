@@ -3,15 +3,11 @@ import Image from "next/image";
 import { handbuck } from "@/utils/font";
 import contactImage from "@/assets/images/contact.png";
 import { OrderProps } from "@/types";
+import getElementPosition from "@/utils/getElementPosition";
 
 const Order: React.FC<OrderProps> = ({ onSetPositions }) => {
   useEffect(() => {
-    const orderPosition = window.document.getElementById("order");
-    if (orderPosition && onSetPositions)
-      onSetPositions((prevState) => ({
-        ...prevState,
-        order: orderPosition?.offsetTop,
-      }));
+    getElementPosition(onSetPositions, "order");
   }, []);
   return (
     <section
